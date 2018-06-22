@@ -1,6 +1,5 @@
 package com.jq.system.spellChecker.algorithms;
 
-import com.jq.system.spellChecker.checker.MultiThreadedChecker;
 import com.jq.system.spellChecker.checker.SimpleChecker;
 
 import java.util.HashSet;
@@ -11,20 +10,20 @@ public class LetterInjector extends AbsCheckerAlgorithm
 
 
     private String word;
-    private MultiThreadedChecker spellChecker;
+    private SimpleChecker spellChecker;
     private Set<String> suggestions;
 
     public static CheckerAlgorithm create() {
         return new LetterInjector();
     }
 
-    public static CheckerRunnableAlgorithm createRunnable(String word, MultiThreadedChecker spellChecker) {
+    public static CheckerRunnableAlgorithm createRunnable(String word, SimpleChecker spellChecker) {
         return new LetterInjector(word, spellChecker);
     }
 
     private LetterInjector() {}
 
-    private LetterInjector(String word, MultiThreadedChecker spellChecker) {
+    private LetterInjector(String word, SimpleChecker spellChecker) {
         this.word = word;
         this.spellChecker = spellChecker;
     }
