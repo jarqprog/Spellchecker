@@ -1,6 +1,6 @@
-package com.jq.customHashSet;
+package com.jq.system.customHashSet;
 
-import com.jq.hasher.Hasher;
+import com.jq.system.hasher.Hasher;
 
 public class MyHashSet implements CustomHashSet {
 

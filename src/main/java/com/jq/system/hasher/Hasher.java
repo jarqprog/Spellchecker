@@ -1,4 +1,4 @@
-package com.jq.hasher;
+package com.jq.system.hasher;
 
 public interface Hasher {
 

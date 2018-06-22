@@ -1,4 +1,4 @@
-package com.jq.customHashSet;
+package com.jq.system.customHashSet;
 
 public interface CustomHashSet {
 
