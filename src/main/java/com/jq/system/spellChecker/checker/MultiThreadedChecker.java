@@ -2,6 +2,7 @@ package com.jq.system.spellChecker.checker;
 
 import com.jq.system.customHashSet.CustomHashSet;
 import com.jq.system.spellChecker.algorithms.CheckerRunnableAlgorithm;
+import com.jq.system.spellChecker.algorithms.LetterEraser;
 import com.jq.system.spellChecker.algorithms.LetterInjector;
 import com.jq.system.spellChecker.algorithms.PairsSwapper;
 
@@ -29,7 +30,8 @@ public class MultiThreadedChecker extends SimpleChecker {
         CheckerRunnableAlgorithm[] algorithms = {
 
                 PairsSwapper.createRunnable(word, this),
-                LetterInjector.createRunnable(word, this) };
+                LetterInjector.createRunnable(word, this),
+                LetterEraser.createRunnable(word, this) };
 
         int len = algorithms.length;
         Thread[] threads = new Thread[len];

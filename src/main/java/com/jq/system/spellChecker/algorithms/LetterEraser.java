@@ -1,6 +1,5 @@
 package com.jq.system.spellChecker.algorithms;
 
-import com.jq.system.spellChecker.SpellChecker;
 import com.jq.system.spellChecker.checker.SimpleChecker;
 
 import java.util.HashSet;
@@ -45,7 +44,34 @@ public class LetterEraser extends AbsCheckerAlgorithm
 
     @Override
     public Set<String> suggest(SimpleChecker checker, String word) {
-        return null;
+
+        suggestions = new HashSet<>();
+        char[] origin = word.toCharArray();
+        int len = origin.length;
+        char[] suggestion;
+        String suggestedWord;
+
+        for (int i=0; i<len; i++) {
+
+            suggestion = new char[len-1];
+
+            int originIdx = 0;
+            for (int j=0; j<len-1; j++) {
+                if (j != i) {
+                    suggestion[j] = origin[originIdx];
+                } else {
+                    originIdx++;  // ignore letter
+                    suggestion[j] = origin[originIdx];
+                }
+                originIdx++;
+            }
+
+            suggestedWord = gatherWord(suggestion);
+            if (checker.isCorrect(suggestedWord)) {
+                suggestions.add(suggestedWord);
+            }
+        }
+        return suggestions;
     }
 
 }
