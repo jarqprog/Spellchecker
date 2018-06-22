@@ -10,7 +10,7 @@ import com.jq.system.hasher.SimpleHasher;
 import com.jq.system.reader.CustomReader;
 import com.jq.system.reader.MyFileReader;
 import com.jq.system.spellChecker.SpellChecker;
-import com.jq.system.spellChecker.multithreadedChecker.MyChecker;
+import com.jq.system.spellChecker.checker.MultiThreadedChecker;
 
 import java.io.IOException;
 import java.util.List;
@@ -62,6 +62,6 @@ public class Root {
     }
 
     private SpellChecker createSpellChecker(CustomHashSet knownWords) {
-        return new MyChecker(knownWords);
+        return new MultiThreadedChecker(knownWords);
     }
 }
