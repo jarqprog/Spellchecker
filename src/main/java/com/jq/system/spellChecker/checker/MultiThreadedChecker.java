@@ -1,10 +1,7 @@
 package com.jq.system.spellChecker.checker;
 
 import com.jq.system.customHashSet.CustomHashSet;
-import com.jq.system.spellChecker.algorithms.CheckerRunnableAlgorithm;
-import com.jq.system.spellChecker.algorithms.LetterEraser;
-import com.jq.system.spellChecker.algorithms.LetterInjector;
-import com.jq.system.spellChecker.algorithms.PairsSwapper;
+import com.jq.system.spellChecker.algorithms.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -31,7 +28,8 @@ public class MultiThreadedChecker extends SimpleChecker {
 
                 PairsSwapper.createRunnable(word, this),
                 LetterInjector.createRunnable(word, this),
-                LetterEraser.createRunnable(word, this) };
+                LetterEraser.createRunnable(word, this),
+                LetterReplacer.createRunnable(word, this) };
 
         int len = algorithms.length;
         Thread[] threads = new Thread[len];
@@ -50,8 +48,6 @@ public class MultiThreadedChecker extends SimpleChecker {
             suggestions.addAll(algorithm.getSuggestions());
 
         }
-
-        System.out.println("CHECKER: " + suggestions);
 
         return suggestions;
     }
