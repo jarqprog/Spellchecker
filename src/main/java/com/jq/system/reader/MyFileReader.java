@@ -1,4 +1,4 @@
-package com.jq.reader;
+package com.jq.system.reader;
 
 import java.io.BufferedReader;
 import java.io.File;

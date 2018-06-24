@@ -1,8 +1,8 @@
-package com.jq.customHashSet;
+package com.jq.system.customHashSet;
 
-import com.jq.hasher.SimpleHasher;
-import com.jq.reader.CustomReader;
-import com.jq.reader.MyFileReader;
+import com.jq.system.hasher.SimpleHasher;
+import com.jq.system.reader.CustomReader;
+import com.jq.system.reader.MyFileReader;
 import org.junit.Test;
 
 import java.io.IOException;
